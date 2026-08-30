@@ -1,0 +1,8 @@
+# Ignore lazy42 folder
+lazy42/
+
+# Common junk
+.DS_Store
+*.log
+__pycache__/
+*.pyc
