@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,22 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+char	*ft_strnstr(const char *str, const char *sub, size_t n)
 {
-	return (c >= 0 && c <= 127);
+	size_t	i;
+	size_t	j;
+
+	if (!*sub)
+		return ((char *)str);
+	i = 0;
+	while (str[i] && i < n)
+	{
+		j = 0;
+		while (str[i + j] && sub[j] && i + j < n && str[i + j] == sub[j])
+			j++;
+		if (!sub[j])
+			return ((char *)str + i);
+		i++;
+	}
+	return (NULL);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,10 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	return (c >= 0 && c <= 127);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }

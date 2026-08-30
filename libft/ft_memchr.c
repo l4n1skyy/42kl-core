@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,16 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	return (c >= 0 && c <= 127);
+	unsigned char	*mem;
+
+	if (n == 0)
+		return (NULL);
+	mem = (unsigned char *)s;
+	while (n-- && *mem++ != (unsigned char)c)
+		;
+	if (*--mem == (unsigned char)c)
+		return (mem);
+	return (NULL);
 }

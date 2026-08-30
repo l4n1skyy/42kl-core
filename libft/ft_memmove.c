@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,14 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	*ft_memmove(void *dst, const void *src, int n)
 {
-	return (c >= 0 && c <= 127);
+	char		*d;
+	const char	*s;
+
+	d = (char *)dst + n - 1;
+	s = (const char *)src + n - 1;
+	while (n--)
+		*d-- = *s--;
+	return (dst);
 }

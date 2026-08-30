@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,19 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_atoi(const char *s)
 {
-	return (c >= 0 && c <= 127);
+	int	sign;
+	int	n;
+
+	sign = 1;
+	n = 0;
+	while (((*s >= 9 && *s <= 13) || *s == 32) && *s++)
+		;
+	if (*s++ == '-')
+		sign *= -1;
+	while (*s >= '0' && *s <= '9')
+		n = n * 10 + *s++ - '0';
+	n *= sign;
+	return (n);
 }

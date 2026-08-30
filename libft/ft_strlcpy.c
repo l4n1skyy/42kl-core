@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,18 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_strlcpy(char *dst, const char *src, int size)
 {
-	return (c >= 0 && c <= 127);
+	int	len;
+	int	i;
+
+	len = ft_strlen(src);
+	i = 0;
+	if (size > 0)
+	{
+		while (*src && i++ < size - 1)
+			*dst++ = *src++;
+		*dst = '\0';
+	}
+	return (len);
 }

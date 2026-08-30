@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,20 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	return (c >= 0 && c <= 127);
+	char	*str;
+	char	*last;
+
+	str = (char *)s;
+	last = NULL;
+	while (*str)
+	{
+		if (*str == (char)c)
+			last = str;
+		str++;
+	}
+	if (*str == (char)c)
+		last = str;
+	return (last);
 }

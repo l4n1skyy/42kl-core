@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,9 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_tolower(int c)
 {
-	return (c >= 0 && c <= 127);
+	if (c >= 'A' && c <= 'Z')
+		return (c | 32);
+	return (c);
 }

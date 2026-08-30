@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,11 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	return (c >= 0 && c <= 127);
+	while (lst && lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

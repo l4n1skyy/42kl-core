@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,9 @@
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	return (c >= 0 && c <= 127);
+	while (*s)
+		write(fd, s++, 1);
+	write(fd, "\n", 1);
 }
