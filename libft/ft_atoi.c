@@ -14,17 +14,23 @@
 
 int	ft_atoi(const char *s)
 {
-	int	sign;
-	int	n;
+	int		sign;
+	long	n;
 
 	sign = 1;
 	n = 0;
-	while (((*s >= 9 && *s <= 13) || *s == 32) && *s++)
-		;
-	if (*s++ == '-')
-		sign *= -1;
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		s++;
+	if (*s == '-' || *s == '+')
+	{
+		if (*s == '-')
+			sign = -1;
+		s++;
+	}
 	while (*s >= '0' && *s <= '9')
-		n = n * 10 + *s++ - '0';
-	n *= sign;
-	return (n);
+	{
+		n = n * 10 + (*s - '0');
+		s++;
+	}
+	return ((int)(n * sign));
 }
