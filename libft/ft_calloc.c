@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void *ft_calloc(size_t nmemb, size_t size)
 {
-	char	*p;
+	char *p;
 
 	if (nmemb && size && (nmemb * size) / nmemb != size)
 		return (NULL);

@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: l4n1skyy <a@b.c> */
+/*   By: lanusri- <a@b.c> */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/30 00:00:00 by l4n1skyy          #+#    #+#             */
-/*   Updated: 2026/08/30 00:00:00 by l4n1skyy         ###   ########.fr       */
+/*   Created: 2026/08/30 00:00:00 by lanusri-          #+#    #+#             */
+/*   Updated: 2026/08/30 00:00:00 by lanusri-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *s)
+char *ft_strdup(const char *s)
 {
-	size_t	len;
-	size_t	i;
-	char	*dst;
+	size_t len;
+	size_t i;
+	char *dst;
 
 	len = ft_strlen(s) + 1;
 	dst = malloc(len);
