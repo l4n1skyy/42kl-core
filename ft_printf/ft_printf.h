@@ -1,18 +1,30 @@
-#ifndef FTPRINTF
-#define FTPRINTF
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/03 00:00:00 by lanusri-          #+#    #+#             */
+/*   Updated: 2026/09/03 00:00:00 by lanusri-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int ft_printf(const char *, ...);
-int ft_ctoa(char);
-int	ft_atoa(char *);
-int	ft_itoa(int);
-int	ft_utoa(unsigned int);
-int	ft_xtoa(unsigned int);
-int	ft_Xtoa(unsigned int);
-int	ft_ptoa(void *);
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+int	ft_printf(const char *format, ...);
+int	ft_ctoa(char c);
+int	ft_stoa(char *s);
+int	ft_itoa(int n);
+int	ft_utoa(unsigned int n);
+int	ft_xtoa(unsigned long n);
+int	ft_bigxtoa(unsigned long n);
+int	ft_ptoa(void *ptr);
 int	ft_percenttoa(void);
 
 #endif

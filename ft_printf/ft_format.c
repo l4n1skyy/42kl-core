@@ -1,44 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lanusri- <lanusri-@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/03 00:00:00 by lanusri-          #+#    #+#             */
+/*   Updated: 2026/09/03 00:00:00 by lanusri-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int ft_ctoa(char c)
+int	ft_ctoa(char c)
 {
 	write(1, &c, 1);
-	return 1;
+	return (1);
 }
 
-int ft_atoa(char *s)
+int	ft_stoa(char *s)
 {
-	int len = 0;
+	int	len;
+
+	if (!s)
+		s = "(null)";
+	len = 0;
 	while (*s)
 	{
-		write(1, s, 1);
+		ft_ctoa(*s++);
 		len++;
-		s++;
 	}
+	return (len);
 }
 
-int ft_itoa(int)
+int	ft_itoa(int n)
 {
+	int	len;
+
+	len = 0;
+	if (n == -2147483648)
+		return (ft_stoa("-2147483648"));
+	if (n < 0)
+	{
+		len += ft_ctoa('-');
+		n = -n;
+	}
+	len += ft_utoa(n);
+	return (len);
 }
 
-int ft_utoa(unsigned int)
+int	ft_ptoa(void *ptr)
 {
+	int	len;
+
+	len = 0;
+	if (!ptr)
+		return (ft_stoa("(nil)"));
+	len = ft_stoa("0x");
+	len += ft_xtoa((unsigned long)ptr);
+	return (len);
 }
 
-int ft_xtoa(unsigned int)
+int	ft_percenttoa(void)
 {
-}
-
-int ft_Xtoa(unsigned int)
-{
-}
-
-int ft_ptoa(void *)
-{
-}
-
-int ft_percenttoa(void)
-{
-	write(1, "%", 1);
-	return 1;
+	ft_ctoa('%');
+	return (1);
 }
