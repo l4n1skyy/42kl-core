@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=4
 AR = ar -rcs
 
 SRCS = get_next_line.c \
-	   ft_strjoin.c		\
+		get_next_line_utils.c \
        main.c
 
 OBJS = $(SRCS:.c=.o)
